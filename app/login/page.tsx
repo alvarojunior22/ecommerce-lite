@@ -9,23 +9,33 @@ import Image from 'next/image'
 export default function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [fieldError, setfiledErrors] = useState<{username?: string, password?: string}>({})
   const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setError('')
+    setfiledErrors({})
+
+    if(!username|| !password){
+      const error:{username?: string, password?: string} = {}
+      if(!username) error.username = 'Username is required'
+      if (!password) error.username = 'password is required'
+    }
 
     try {
       await axios.post('/api/login', { username, password })
       localStorage.setItem('isLoggedIn', 'true')
       router.push('/products')
     } catch (err) {
-      if (axios.isAxiosError(err)) {
-        if (err.response?.status === 401) setError('Invalid credentials ❌')
-        else setError('Server error ⚠️')
-      } else {
-        setError('Unexpected error')
+      if(axios.isAxiosError(err)){
+        if(err.response?.status === 401 ){
+          setfiledErrors({
+            username: 'Invalid username or password',
+            password: 'Invalid username or password',
+          })
+        }else{
+          setfiledErrors({username: 'Server error'})
+        }
       }
     }
   }
@@ -63,9 +73,16 @@ export default function LoginPage() {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 ${
+                fieldError.username
+                  ? 'border-red-500 focus:ring-red-400'
+                  : 'border-gray-300 focus:ring-blue-500'
+              }`}
               placeholder="Enter your username"
             />
+            {fieldError.username && (
+              <p className="text-red-500 text-xs mt-1">{fieldError.username}</p>
+            )}
           </div>
 
           <div>
@@ -76,16 +93,17 @@ export default function LoginPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 ${
+                fieldError.password
+                  ? 'border-red-500 focus:ring-red-400'
+                  : 'border-gray-300 focus:ring-blue-500'
+              }`}
               placeholder="Enter your password"
             />
+            {fieldError.password && (
+              <p className="text-red-500 text-xs mt-1">{fieldError.password}</p>
+            )}
           </div>
-
-          {error && (
-            <p className="text-red-500 text-sm font-medium text-center">
-              {error}
-            </p>
-          )}
 
           <button
             type="submit"
