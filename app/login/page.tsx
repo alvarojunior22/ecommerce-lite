@@ -9,17 +9,19 @@ import Image from 'next/image'
 export default function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [fieldError, setfiledErrors] = useState<{username?: string, password?: string}>({})
+  const [fieldError, setFilederrors] = useState<{username?: string, password?: string}>({})
   const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setfiledErrors({})
+    setFilederrors({})
 
-    if(!username|| !password){
+    if(!username || !password){
       const error:{username?: string, password?: string} = {}
       if(!username) error.username = 'Username is required'
-      if (!password) error.username = 'password is required'
+      if (!password) error.password = 'password is required'
+      setFilederrors(error)
+      return
     }
 
     try {
@@ -28,13 +30,19 @@ export default function LoginPage() {
       router.push('/products')
     } catch (err) {
       if(axios.isAxiosError(err)){
-        if(err.response?.status === 401 ){
-          setfiledErrors({
+        const errorType = err.response?.data.error
+        if ( errorType === 'invalid username'){
+          setFilederrors({username: 'user not found'})
+        }else if (errorType === 'invalid password'){
+          setFilederrors({password: 'Incorrect password'})
+        }else if(err.response?.status === 401 ){
+          setFilederrors({
             username: 'Invalid username or password',
             password: 'Invalid username or password',
           })
+        
         }else{
-          setfiledErrors({username: 'Server error'})
+          setFilederrors({username: 'Server error'})
         }
       }
     }

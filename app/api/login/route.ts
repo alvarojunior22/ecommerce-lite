@@ -2,15 +2,19 @@ import { authenticate } from "@/utils/auth";
 import { NextResponse } from "next/server";
 import { cookies } from 'next/headers'
 
+function isAuthError (user: unknown): user is {error: string} {
+  return typeof user === 'object' && user !== null && 'error' in user
+} 
+
 export async function POST(req:Request) {
   try {
     const { username, password } = await req.json()
 
     const user = await authenticate(username, password)
 
-    if (!user) {
+    if ((isAuthError)(user)) {
       return NextResponse.json({
-        message: 'invalid credentials'
+        error: user.error
       }, {status: 401})
     }
 
