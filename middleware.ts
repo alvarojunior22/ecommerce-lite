@@ -5,8 +5,8 @@ export function middleware(req: NextRequest) {
   const isLoggedIn = req.cookies.get('isLoggedIn')?.value
 
   // Si NO hay cookie y el usuario intenta entrar a /products
-  if (!isLoggedIn && req.nextUrl.pathname.startsWith('/products')) {
-    const loginUrl = new URL('/login', req.url)
+  if (!isLoggedIn && req.nextUrl.pathname.startsWith('/views/products')) {
+    const loginUrl = new URL('/views/login', req.url)
     return NextResponse.redirect(loginUrl)
   }
 
@@ -15,5 +15,5 @@ export function middleware(req: NextRequest) {
 
 // Aplica solo a rutas /products
 export const config = {
-  matcher: ['/products/:path*'],
+  matcher: ['/views/products/:path*'],
 }

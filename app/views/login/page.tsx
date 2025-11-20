@@ -26,8 +26,8 @@ export default function LoginPage() {
 
     try {
       await axios.post('/api/login', { username, password })
-      localStorage.setItem('isLoggedIn', 'true')
-      router.push('/products')
+      document.cookie = "isLoggedIn=true; path=/; max-age=86400; sameSite=strict";
+      router.push('/views/products')
     } catch (err) {
       if(axios.isAxiosError(err)){
         const errorType = err.response?.data.error

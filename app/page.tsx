@@ -1,8 +1,8 @@
-import LoginPage from "./login/page";
+import LoginPage from "./views/login/page";
 
 function page() {
   return (
-    <LoginPage/>
+    <LoginPage />
   );
 }
 

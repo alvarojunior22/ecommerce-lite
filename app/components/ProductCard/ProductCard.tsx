@@ -1,5 +1,6 @@
 import { Product } from "@/interfaces/product";
 import Image from "next/image";
+import { Button } from "../button/button";
 
 interface ProductCardProps {
   product: Product;
@@ -14,6 +15,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <p className="text-gray-500">{product.category}</p>
         <p className="text-lg font-semibold mt-2">${product.price}</p>
       </div>
+      <div className="mt-4">
+        <Button text="buy" variant="primary" size="md" />
+      </div>
+      
     </article>
   );
 };

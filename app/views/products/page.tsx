@@ -1,6 +1,6 @@
 'use client'
 
-import ProductList from "../components/ProductList/ProductList"
+import ProductList from "@/app/components/ProductList/ProductList"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 
@@ -10,7 +10,7 @@ export default function SeccionProducts() {
   useEffect(() => {
     const isloggedIn = localStorage.getItem('isLoggedIn')
     if (!isloggedIn) {
-      router.push('/login')
+      router.push('/views/login')
     }
   }, [router])
 
