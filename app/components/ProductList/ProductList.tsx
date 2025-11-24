@@ -1,8 +1,12 @@
+
 'use client';
 
 import { products } from "@/data/producto.data";
 import ProductCard from "../ProductCard/ProductCard";
 import { useProductFilter } from "@/hooks/filters";
+import { Button } from "../button/button";
+import { Badge } from "../badge/badge";
+import { ShoppingBag } from "lucide-react";
 
 const ProductList = () => {
   const { search, setSearch, filteredProducts } = useProductFilter(products);
@@ -19,7 +23,21 @@ const ProductList = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
-          <ProductCard key={product.sku} product={product} />
+          <ProductCard
+            key={product.sku}
+            product={product}
+            props={{
+              title: product.name,
+              type: "white",
+              imageUrl: product.imageUrl,
+              footer: (
+                <div className="flex flex-col gap-6">
+                  <Button text="Buy" />
+                  <Badge icon={<ShoppingBag/>} label="Disponible" />
+                </div>
+              )
+            }}
+          />
         ))}
 
         {filteredProducts.length === 0 && (

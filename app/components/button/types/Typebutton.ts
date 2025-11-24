@@ -1,3 +1,4 @@
+import React from "react"
 
 type opcionVariant = 'primary' | 'secondary' | 'danger'
 
@@ -9,8 +10,8 @@ export interface propsButton {
   size?: opcionSize
   disabled?: boolean
   loading?: boolean
-  leftIcon?: string
-  rightIcon?: string
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
   onClick?: () => void
   text: string
 }
