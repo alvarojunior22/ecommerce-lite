@@ -44,6 +44,17 @@ export class useStore {
     return results;
   }
 
+  public create (newUser: Omit<Users, 'id'>): Users {
+    const userToadd: Users = {
+      id: this.nexId,
+      ...newUser
+    }
+    this.user.push(userToadd)
+    this.nexId++
+    console.log("✅ 201 Created: New user add")
+    return userToadd
+  }
+
   public update(id: number, update: Partial<Omit<Users, 'id'>>): Users | undefined {
     console.log('✅ 200 PATCH')
 

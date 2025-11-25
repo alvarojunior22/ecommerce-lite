@@ -3,8 +3,8 @@ export interface Users {
   fullName: string
   email: string
   password:string
-  isActive: boolean
-  role: string
-  address: string
-  createdAt: Date
+  isActive?: boolean
+  role?: string
+  address?: string
+  createdAt?: Date
 }
