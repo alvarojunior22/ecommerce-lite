@@ -1,9 +1,7 @@
-import LoginPage from "./views/login/page";
+import HomePage from "./views/home/page";
 
 function page() {
-  return (
-    <LoginPage />
-  );
+  <HomePage/>
 }
 
 export default page;
