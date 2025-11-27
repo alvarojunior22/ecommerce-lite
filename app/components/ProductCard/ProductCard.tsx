@@ -1,8 +1,6 @@
 import { Product } from "@/interfaces/product";
 import Image from "next/image";
-import { Button } from "../button/button";
-import { Badge } from "../badge/badge";
-import { ShoppingBag } from "lucide-react";
+
 import { propsCard } from "./types/Typecard";
 
 interface ProductCardProps {
@@ -27,7 +25,7 @@ const ProductCard = ({ product, props }: ProductCardProps) => {
         alt={product.name}
         width={200}
         height={200}
-        className="w-full h-48 object-cover rounded-t-lg"
+        className="w-full h-48 object-contain rounded-t-lg p-2 bg-white"
       />
 
       <div className="p-4">

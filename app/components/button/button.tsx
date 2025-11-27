@@ -13,25 +13,40 @@ export const Button: React.FC<propsButton> = ({ text, variant = 'primary', size 
   }
 
   const sizeClasses = {
-    sm: 'px-2 py-1 text-sm',
-    md: 'px-4 py-2 text-base',
-    lg: 'px-6 py-3 text-lg'
-  }
+    sm: "px-3 py-1.5 text-sm",
+    md: "px-4 py-2 text-base",
+    lg: "px-6 py-3 text-lg"
+  };
+
 
 
   return (
-    <button className={`${variantClasses[variant]} ${sizeClasses[size]} rounded-lg w-20`} onClick={onClick}>
+    <button
+      disabled={loading}
+      className={`
+      ${variantClasses[variant]}
+      ${sizeClasses[size]}
+      rounded-xl
+      flex items-center justify-center gap-2
+      font-semibold
+      transition-all duration-200
+      disabled:opacity-50 disabled:cursor-not-allowed
+      shadow-sm hover:shadow-md
+    `}
+      onClick={onClick}
+    >
       {loading ? (
-        <ShoppingBag/>
-      ) : leftIcon ? (
-        <span className="mr-2 inline-flex items-center">{leftIcon}</span>
-      ) : null}
-
-      <span>{text}</span>
-
-      {rightIcon ? <span className="ml-2 inline-flex items-center">{rightIcon}</span> : null}
-      
+        <ShoppingBag className="animate-spin" />
+      ) : (
+        <>
+          {leftIcon && <span>{leftIcon}</span>}
+          <span>{text}</span>
+          {rightIcon && <span>{rightIcon}</span>}
+        </>
+      )}
     </button>
-  )
+  );
+
+
 }
 

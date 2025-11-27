@@ -38,7 +38,7 @@ export default function HomePage() {
         {/* HERO IMAGE */}
         <div className="w-full flex justify-center">
           <Image
-            src="/Homepaige.png"
+            src="/background.png"
             alt="Modern products"
             width={1600}
             height={1000}

@@ -9,7 +9,7 @@ export const products: Product[] = [
     price: 19.99,
     isActive: true,
     category: "Ropa",
-    imageUrl: "/products/camiseta-negra.jpg",
+    imageUrl: "/T-shirt.png",
     createdAt: new Date("2025-01-10"),
     tags: ["básico", "ropa", "negro"],
     description: "Camiseta cómoda y versátil para uso diario."
@@ -22,7 +22,7 @@ export const products: Product[] = [
     price: 39.99,
     isActive: true,
     category: "Ropa",
-    imageUrl: "/products/jeans-azul.jpg",
+    imageUrl: "/jean.png",
     createdAt: new Date("2025-01-12"),
     tags: ["jeans", "azul"],
     dimensions: { width: 30, height: 100, depth: 2 }
@@ -35,7 +35,7 @@ export const products: Product[] = [
     price: 59.99,
     isActive: true,
     category: "Deportes",
-    imageUrl: "/products/sudadera.jpg",
+    imageUrl: "/hoggie.png",
     createdAt: new Date("2025-01-15"),
     tags: ["deporte", "sudadera"],
     description: "Diseñada para entrenamiento con tela transpirable."
@@ -48,7 +48,7 @@ export const products: Product[] = [
     price: 89.99,
     isActive: true,
     category: "Calzado",
-    imageUrl: "/products/running.jpg",
+    imageUrl: "/shoes.png",
     createdAt: new Date("2025-01-20"),
     tags: ["run", "fitness"],
     dimensions: { width: 12, height: 8, depth: 30 }
@@ -61,7 +61,7 @@ export const products: Product[] = [
     price: 14.99,
     isActive: true,
     category: "Accesorios",
-    imageUrl: "/products/gorra.jpg",
+    imageUrl: "/cape.png",
     createdAt: new Date("2025-01-25"),
     tags: ["accesorio", "negro"]
   },
@@ -73,7 +73,7 @@ export const products: Product[] = [
     price: 119.99,
     isActive: true,
     category: "Tecnología",
-    imageUrl: "/products/reloj.jpg",
+    imageUrl: "/smartwatch.png",
     createdAt: new Date("2025-02-01"),
     description: "Smartwatch con monitor de ritmo cardíaco y GPS."
   },
@@ -85,7 +85,7 @@ export const products: Product[] = [
     price: 44.99,
     isActive: true,
     category: "Accesorios",
-    imageUrl: "/products/bolso.jpg",
+    imageUrl: "/package.png",
     createdAt: new Date("2025-02-05"),
     tags: ["nuevo"]
   },
@@ -97,7 +97,7 @@ export const products: Product[] = [
     price: 79.99,
     isActive: true,
     category: "Tecnología",
-    imageUrl: "/products/teclado.jpg",
+    imageUrl: "/keyboard.png",
     createdAt: new Date("2025-02-10"),
     tags: ["RGB", "gaming"],
     description: "Switches mecánicos con iluminación personalizable."
@@ -110,7 +110,7 @@ export const products: Product[] = [
     price: 49.99,
     isActive: true,
     category: "Tecnología",
-    imageUrl: "/products/audifonos.jpg",
+    imageUrl: "/headphone.png",
     createdAt: new Date("2025-02-15"),
     tags: ["audio", "inalámbricos"]
   },
@@ -122,7 +122,7 @@ export const products: Product[] = [
     price: 2299.99,
     isActive: true,
     category: "Tecnología",
-    imageUrl: "/products/laptop.jpg",
+    imageUrl: "/laptop.png",
     createdAt: new Date("2025-03-01"),
     tags: ["gaming", "RTX"],
     dimensions: { width: 35, height: 2, depth: 24 },
@@ -136,7 +136,7 @@ export const products: Product[] = [
     price: 29.99,
     isActive: true,
     category: "Tecnología",
-    imageUrl: "/products/mouse.jpg",
+    imageUrl: "/mouse.png",
     createdAt: new Date("2025-03-05"),
     tags: ["gaming", "ergonómico"]
   },
@@ -148,7 +148,7 @@ export const products: Product[] = [
     price: 34.99,
     isActive: true,
     category: "Ropa",
-    imageUrl: "/products/camisa-blanca.jpg",
+    imageUrl: "/long-sleeve-shirt.png",
     createdAt: new Date("2025-03-10")
   },
   {
@@ -159,7 +159,7 @@ export const products: Product[] = [
     price: 124.99,
     isActive: true,
     category: "Ropa",
-    imageUrl: "/products/chaqueta.jpg",
+    imageUrl: "/hoggiewater.png",
     createdAt: new Date("2025-03-15"),
     description: "Resistente al agua, ideal para clima lluvioso."
   },
@@ -171,7 +171,7 @@ export const products: Product[] = [
     price: 24.99,
     isActive: true,
     category: "Deportes",
-    imageUrl: "/products/balon.jpg",
+    imageUrl: "/ball.png",
     createdAt: new Date("2025-03-20"),
     tags: ["deportes"]
   },
@@ -183,7 +183,7 @@ export const products: Product[] = [
     price: 69.99,
     isActive: true,
     category: "Salud",
-    imageUrl: "/products/proteina.jpg",
+    imageUrl: "/supplement.png",
     createdAt: new Date("2025-03-25"),
     description: "Proteína en polvo sabor vainilla para recuperación muscular."
   }
